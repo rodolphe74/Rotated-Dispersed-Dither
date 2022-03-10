@@ -5,3 +5,6 @@ A simple and not optimal implementation of Victor Ostromoukhov, Roger D. Hersch,
 
 [More information here](/SIGGRAPH94_RotatedDither.pdf)
 
+[Original](/images/lenna_.jgp)
+
+[Dithered](/images/ditherd.jpg)
