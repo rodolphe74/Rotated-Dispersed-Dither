@@ -7,4 +7,4 @@ A simple and not optimal implementation of Victor Ostromoukhov, Roger D. Hersch,
 
 ![Original](/images/lenna_.jpg)
 
-![Dithered](/images/result.jpg)
+![Dithered](/images/result.png)
