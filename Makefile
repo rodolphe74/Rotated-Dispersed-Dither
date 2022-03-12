@@ -41,3 +41,4 @@ clean:
 	$(RM) rotdither.exe
 	$(RM) rotdithertest.exe
 	$(RM) rotdithercmy.exe
+	$(RM) rotditherrgb.exe
