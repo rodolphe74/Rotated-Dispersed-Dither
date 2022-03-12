@@ -22,15 +22,22 @@ AR2=ranlib
 # End of configurable options.
 
 
-all: rotdither rotdithertest
+all: rotdither rotdithercmy rotditherrgb rotdithertest
 
-rotdither:	rot_dither.c 
+rotdither:	rot_dither.c
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 	
-rotdithertest:	rot_dither_test.c 
+rotdithercmy:	rot_dither_cmy.c
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
+	
+rotditherrgb:	rot_dither_rgb.c
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
+	
+rotdithertest:	rot_dither_test.c
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
 
 clean:
 	$(RM) rotdither.exe
 	$(RM) rotdithertest.exe
+	$(RM) rotdithercmy.exe

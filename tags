@@ -1,0 +1,51 @@
+STB_IMAGE_IMPLEMENTATION	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^ #define STB_IMAGE_IMPLEMENTATION$/;"	macro	line:8
+STB_IMAGE_WRITE_IMPLEMENTATION	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^ #define STB_IMAGE_WRITE_IMPLEMENTATION$/;"	macro	line:10
+max	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^#define max(a, b) (((a) > (b)) ? (a) : (b))$/;"	macro	line:14
+min	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^#define min(a, b) (((a) < (b)) ? (a) : (b))$/;"	macro	line:15
+C	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^#define C(r,g,b) (1.0-r\/255.0)$/;"	macro	line:18
+M	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^#define M(r,g,b) (1.0-g\/255.0)$/;"	macro	line:19
+Y	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^#define Y(r,g,b) (1.0-b\/255.0)$/;"	macro	line:20
+matrix	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^int8_t matrix[] =$/;"	variable	line:22
+matrix_size	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^int32_t matrix_size[] = { 4, 4 };$/;"	variable	line:29
+matrix_max_value	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^int8_t matrix_max_value = 15;$/;"	variable	line:30
+_pixel	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^typedef struct _pixel {$/;"	struct	line:32
+r	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^	short r;$/;"	member	line:33	struct:_pixel	access:public
+g	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^	short g;$/;"	member	line:34	struct:_pixel	access:public
+b	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^	short b;$/;"	member	line:35	struct:_pixel	access:public
+pixel	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^typedef struct _pixel { 	short r; 	short g; 	short b; } pixel; /;"	typedef	line:36	typeref:struct:_pixel
+_palette	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^typedef struct _palette {$/;"	struct	line:38
+colors	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^	unsigned char colors[256][3];$/;"	member	line:39	struct:_palette	access:public
+size	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^	unsigned char size;$/;"	member	line:40	struct:_palette	access:public
+palette	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^typedef struct _palette { 	unsigned char colors[256][3]; 	unsigned char size; } palette; $/;"	typedef	line:41	typeref:struct:_palette
+rgb_color	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^typedef unsigned char rgb_color[3]; $/;"	typedef	line:43
+_rectangle	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^typedef struct _rectangle {$/;"	struct	line:45
+matrix	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^	int8_t *matrix;$/;"	member	line:46	struct:_rectangle	access:public
+size	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^	int32_t size[2];$/;"	member	line:47	struct:_rectangle	access:public
+rectangle	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^typedef struct _rectangle { 	int8_t *matrix; 	int32_t size[2]; } rectangle; $/;"	typedef	line:48	typeref:struct:_rectangle
+_cmy	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^typedef struct _cmy {$/;"	struct	line:50
+c	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^	uint8_t *c;$/;"	member	line:51	struct:_cmy	access:public
+m	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^	uint8_t *m;$/;"	member	line:52	struct:_cmy	access:public
+y	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^	uint8_t *y;$/;"	member	line:53	struct:_cmy	access:public
+cmy	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^typedef struct _cmy { 	uint8_t *c; 	uint8_t *m; 	uint8_t *y; } cmy; $/;"	typedef	line:54	typeref:struct:_cmy
+repeat_matrix_size	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^int32_t repeat_matrix_size[] = { 8000, 8000 };$/;"	variable	line:56
+_A	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^double _A = 4.0;$/;"	variable	line:58
+_B	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^double _B = 3.0;$/;"	variable	line:59
+_C	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^double _C = 5.0;$/;"	variable	line:60
+get_position	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^int get_position(int32_t x, int32_t y, int32_t stride)$/;"	function	line:63	signature:(int32_t x, int32_t y, int32_t stride)	returns:int 
+create_matrix	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^rectangle create_matrix(int8_t *base_matrix, int32_t xsize, int32_t ysize)$/;"	function	line:68	signature:(int8_t *base_matrix, int32_t xsize, int32_t ysize)	returns:rectangle 
+center_matrix	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^rectangle center_matrix(rectangle rect, int32_t size_x, int32_t size_y)$/;"	function	line:117	signature:(rectangle rect, int32_t size_x, int32_t size_y)	returns:rectangle 
+rotate_matrix	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^rectangle rotate_matrix(rectangle rect, float a, float b, float c)$/;"	function	line:148	signature:(rectangle rect, float a, float b, float c)	returns:rectangle 
+display_matrix	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^void display_matrix(int8_t *m, int32_t xsize, int32_t ysize)$/;"	function	line:179	signature:(int8_t *m, int32_t xsize, int32_t ysize)	returns:void 
+find_max_rectangle_in_matrix	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^rectangle find_max_rectangle_in_matrix(rectangle rect)$/;"	function	line:195	signature:(rectangle rect)	returns:rectangle 
+convert_pixel	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^void convert_pixel(pixel *source, pixel *target)$/;"	function	line:240	signature:(pixel *source, pixel *target)	returns:void 
+color_delta_f_ccir601	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^float color_delta_f_ccir601(unsigned char c1[3], unsigned char c2[3])$/;"	function	line:247	signature:(unsigned char c1[3], unsigned char c2[3])	returns:float 
+color_delta_f	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^float color_delta_f(unsigned char c1[3], unsigned char c2[3])$/;"	function	line:256	signature:(unsigned char c1[3], unsigned char c2[3])	returns:float 
+find_closest_color_rgb	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^void find_closest_color_rgb(pixel *pixel, palette *palette, rgb_color *color)$/;"	function	line:265	signature:(pixel *pixel, palette *palette, rgb_color *color)	returns:void 
+linear_space	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^short linear_space(int8_t x)$/;"	function	line:291	signature:(int8_t x)	returns:short 
+ordered_dither	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^unsigned char *ordered_dither(unsigned char *source, int width, int height, int channels, $/;"	function	line:304	signature:(unsigned char *source, int width, int height, int channels, palette *palette, int8_t *matrix, int32_t *matrix_size)	returns:unsigned char 
+get_cmyk	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^cmy get_cmyk(unsigned char *source, int width, int height, int channels)$/;"	function	line:362	signature:(unsigned char *source, int width, int height, int channels)	returns:cmy 
+get_comp_as_image	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^uint8_t *get_comp_as_image(unsigned char *source, int width, int height, int channels)$/;"	function	line:390	signature:(unsigned char *source, int width, int height, int channels)	returns:uint8_t 
+change_black_to_color	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^void change_black_to_color(uint8_t *img, int width, int height, int channels, rgb_color color)$/;"	function	line:406	signature:(uint8_t *img, int width, int height, int channels, rgb_color color)	returns:void 
+dither_components	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^cmy dither_components(cmy *components, int width, int height, int channels, int8_t *matrix, int32_t *matrix_size)$/;"	function	line:419	signature:(cmy *components, int width, int height, int channels, int8_t *matrix, int32_t *matrix_size)	returns:cmy 
+substract_components	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^uint8_t *substract_components(cmy components, int width, int height, int channels)$/;"	function	line:460	signature:(cmy components, int width, int height, int channels)	returns:uint8_t 
+main	C:\Users\rodoc\HOME\developpement\c\Rotated-Dispersed-Dither\rot_dither_rgb.c	/^int main(int argc, char *argv[])$/;"	function	line:478	signature:(int argc, char *argv[])	returns:int 
