@@ -10,6 +10,5 @@ A simple and not optimal implementation of Victor Ostromoukhov, Roger D. Hersch,
 In Black and White :
 ![Dithered](/images/result.png)
 
-
 Assembling color components to get full color range :
 ![Dithered](/images/result_cmy.png)
