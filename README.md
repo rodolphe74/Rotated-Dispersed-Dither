@@ -8,3 +8,7 @@ A simple and not optimal implementation of Victor Ostromoukhov, Roger D. Hersch,
 ![Original](/images/lenna_.jpg)
 
 ![Dithered](/images/result.png)
+
+
+It's even possible to assemble color components to get full color range
+![Dithered](/images/result_cmy.png)
