@@ -5,10 +5,12 @@
 #include <math.h>
 #include <float.h>
 
- #define STB_IMAGE_IMPLEMENTATION
- #include "stb/stb_image.h"
- #define STB_IMAGE_WRITE_IMPLEMENTATION
- #include "stb/stb_image_write.h"
+#include "cwalk/include/cwalk.h"
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb/stb_image.h"
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb/stb_image_write.h"
 
 
 #define max(a, b) (((a) > (b)) ? (a) : (b))
@@ -356,6 +358,10 @@ palette *palette, int8_t *matrix, int32_t *matrix_size)
 
 int main(int argc, char *argv[])
 {
+	if (argc < 2) {
+		printf("Image filename as argument...\n");
+		return 0;
+	}
 
 	printf("Generating a big matrix from \n");
 	display_matrix(matrix, 4, 4);
@@ -363,15 +369,12 @@ int main(int argc, char *argv[])
 
 	
 	rectangle repeat_matrix = create_matrix(matrix, repeat_matrix_size[0], repeat_matrix_size[1]);
-//	rectangle centered_matrix = center_matrix(repeat_matrix, wrapping_matrix_size[0], wrapping_matrix_size[1]);
-//	rectangle rotated_matrix = rotate_matrix(centered_matrix, C);
-
 	rectangle rotated_matrix = rotate_matrix(repeat_matrix, _A, _B, _C);
 	rectangle the_big_matrix = find_max_rectangle_in_matrix(rotated_matrix);
 
 	printf("Loading image\n");
 	int width, height, channels;
-	unsigned char *img = stbi_load("images/lenna_.jpg", &width, &height, &channels, 0);
+	unsigned char *img = stbi_load(/*"images/lenna_.jpg"*/ argv[1], &width, &height, &channels, 0);
 
 	if (img == NULL) {
 		printf("Error in loading the image\n");
@@ -393,29 +396,28 @@ int main(int argc, char *argv[])
 	p.colors[1][1] = 255;
 	p.colors[1][2] = 255;
 	
-	// todo exploring cmyk ?
-//	p.colors[2][0] = 0;
-//	p.colors[2][1] = 255;
-//	p.colors[2][2] = 255;
-//	
-//	p.colors[3][0] = 255;
-//	p.colors[3][1] = 255;
-//	p.colors[3][2] = 0;
-//	
-//	p.colors[4][0] = 255;
-//	p.colors[4][1] = 0;
-//	p.colors[4][2] = 255;
-	
 	p.size = 2;
 	
 	printf("Dithering image\n");
 	unsigned char *result = ordered_dither(img, width, height, channels, &p, the_big_matrix.matrix, the_big_matrix.size);
 	
-	printf("Saving image\n");
-	stbi_write_png("images/result.png", width, height, channels, result, width * channels);
+	char new_name[1024] = {0};
+
+	size_t length;
+	const char *base;
+	cwk_path_get_basename(argv[1], &base, &length);
+	
+	const char *path = argv[1];
+	cwk_path_get_dirname(path, &length);
+	
+	strncpy(new_name, path, length);
+	strcat(new_name, "_");
+	strcat(new_name, base);
+	
+	printf("Saving image as %s\n", new_name);
+	stbi_write_png(new_name, width, height, channels, result, width * channels);
 
 	free(repeat_matrix.matrix);
-//	free(centered_matrix.matrix);
 	free(rotated_matrix.matrix);
 	free(the_big_matrix.matrix);
 	free(result);

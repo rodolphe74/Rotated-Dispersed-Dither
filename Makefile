@@ -6,7 +6,7 @@ CC=gcc
 CFLAGS= -g -I. -std=c99
 
 # Link-time cc options:
-LDFLAGS= -lm
+LDFLAGS= -lm -Lcwalk -lcwalk
 
 # To link any special libraries, add the necessary -l commands here.
 LDLIBS= 

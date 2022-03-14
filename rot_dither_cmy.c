@@ -5,11 +5,12 @@
 #include <math.h>
 #include <float.h>
 
- #define STB_IMAGE_IMPLEMENTATION
- #include "stb/stb_image.h"
- #define STB_IMAGE_WRITE_IMPLEMENTATION
- #include "stb/stb_image_write.h"
+#include "cwalk/include/cwalk.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb/stb_image.h"
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb/stb_image_write.h"
 
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -477,6 +478,10 @@ uint8_t *substract_components(cmy components, int width, int height, int channel
 
 int main(int argc, char *argv[])
 {
+	if (argc < 2) {
+		printf("Image filename as argument...\n");
+		return 0;
+	}
 
 	printf("Generating a big matrix from \n");
 	display_matrix(matrix, 4, 4);
@@ -489,7 +494,7 @@ int main(int argc, char *argv[])
 
 	printf("Loading image\n");
 	int width, height, channels;
-	unsigned char *img = stbi_load("images/lenna_.jpg", &width, &height, &channels, 0);
+	unsigned char *img = stbi_load(argv[1], &width, &height, &channels, 0);
 
 	if (img == NULL) {
 		printf("Error in loading the image\n");
@@ -515,7 +520,21 @@ int main(int argc, char *argv[])
 	stbi_write_png("images/md.png", width, height, channels, dithered_comps.m, width * channels);
 	stbi_write_png("images/yd.png", width, height, channels, dithered_comps.y, width * channels);
 	uint8_t *cmyk_img = substract_components(dithered_comps, width, height, channels);
-	stbi_write_png("images/result_cmy.png", width, height, channels, cmyk_img, width * channels);
+	
+	
+	char new_name[1024] = {0};
+	size_t length;
+	const char *base;
+	cwk_path_get_basename(argv[1], &base, &length);
+	const char *path = argv[1];
+	cwk_path_get_dirname(path, &length);
+	strncpy(new_name, path, length);
+	strcat(new_name, "_");
+	strcat(new_name, base);
+	
+	printf("Saving image as %s\n", new_name);
+	stbi_write_png(new_name, width, height, channels, cmyk_img, width * channels);
+	
 	free(comps.c);
 	free(comps.m);
 	free(comps.y);
