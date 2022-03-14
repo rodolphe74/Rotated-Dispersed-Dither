@@ -14,4 +14,4 @@ In Black and White :
 
 Assembling color components to get full color range :
 
-![Dithered](/images/_lenna_cmy.png)
+![Dithered](/images/result_cmy.png)
